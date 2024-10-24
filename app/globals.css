@@ -1,42 +1,150 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap");
+*,
+*::before,
+*::after {
   padding: 0;
   margin: 0;
+  box-sizing: inherit;
 }
-
+html {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Mouse Memoirs", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  background-image: linear-gradient(
+      180deg,
+      rgb(26, 4, 58, 0.8) 0%,
+      rgb(21, 18, 120, 0.6) 70%,
+      rgba(43, 22, 119, 0.6) 100%
+    ),
+    url("/images/background-desktop.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+h1 {
+  font-size: 136px;
+  color: #fff;
+}
+h2 {
+  font-size: 88px;
+  font-weight: normal;
+  color: #fff;
+}
+h3 {
+  font-size: 48px;
+  font-weight: 100;
+  color: #fff;
+}
+h4 {
+  font-size: 32px;
+  color: #fff;
+}
 a {
-  color: inherit;
   text-decoration: none;
 }
+.home-section {
+  height: 100vh;
+  padding-top: 12.7rem;
+  padding-bottom: 13.2rem;
+}
+.home-container {
+  position: relative;
+  width: 592px;
+  height: 500px;
+  border-radius: 72px;
+  margin-inline: auto;
+  background-image: linear-gradient(
+    180deg,
+    #344aba 0%,
+    rgba(0, 20, 121, 0.83) 100%
+  );
+  box-shadow: inset 0px 6px 0px rgba(36, 99, 255, 0.8),
+    inset 0px -8px 0px rgba(20, 14, 102, 0.4);
+  /* display: flex;
+  justify-content: center; */
+}
+.home-container .logo {
+  position: absolute;
+  top: -19%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-btn {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  margin-top: 129px;
+  margin-bottom: 58px;
+  display: grid;
+  place-items: center;
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+  background-image: linear-gradient(180deg, #fe71fe 0%, #7199ff 100%);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 -4px 0 5px #243041, inset 0 -12px 0 11px #9d2df5;
+  transition: all 0.1s ease-in-out;
+}
+.home-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: inherit;
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 -4px 0 5px #243041, inset 0 -12px 0 11px #9d2df5;
+  z-index: -10;
+}
+.home-btn:hover::after {
+  z-index: 10;
+}
+.home-btn:active {
+  transform: translateY(6px);
+  box-shadow: inset 0 -2px 0 3px #243041, inset 0 -6px 0 7px #9d2df5; /* Soften the inner shadow to give pressed effect */
+  background-image: linear-gradient(180deg, #fe71fe 10%, #7199ff 90%);
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out,
+    background-image 0.1s ease-in-out;
+}
+.home-btn:hover .home-btn-logo {
+  z-index: 100;
+}
+.play-btn {
+  position: relative;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 2rem;
+  background-color: #2463ff;
+  border-radius: 500rem;
+  padding: 12px 64px;
+  box-shadow: inset 0 -2px 0 3px #140e66, inset 0 1px 0 6px #3c74ff;
+  transition: transform 0.3s ease-in-out;
+}
+.play-btn::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  height: 100%;
+  width: 100%;
+  border: inherit;
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: inherit;
+  z-index: -1;
+}
+.play-btn:hover::after {
+  z-index: 10;
+}
+.play-btn:active {
+  transform: translateY(3px);
+  box-shadow: inset 0 -2px 0 3px #140e66, inset 0 1px 0 6px #3c74ff;
 }
