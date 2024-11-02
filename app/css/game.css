@@ -1,0 +1,164 @@
+* {
+  font-family: "Mouse Memoirs", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.game-section {
+  position: relative;
+}
+.game-container {
+  width: 1216px;
+  height: 100%;
+  margin-inline: auto;
+  padding-block: 70px;
+}
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 88px;
+}
+.menu-button {
+  display: grid;
+  place-items: center;
+  width: 94px;
+  height: 94px;
+  border-radius: 50%;
+  background-image: linear-gradient(180deg, #fe71fe 0%, #7199ff 100%);
+  box-shadow: inset 0 -4px 0 1px #243041,
+    inset 0 -6px 0 7px rgb(157, 45, 245, 0.25);
+  transition: background-image 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+.menu-button:hover {
+  background-image: linear-gradient(180deg, #7199ff 0%, #fe71fe 100%);
+}
+
+.menu-button:active {
+  transform: translateY(4px);
+  box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0),
+    inset 0px -3px 7px rgba(158, 45, 245, 0.5);
+}
+.header-1 {
+  display: flex;
+  gap: 57px;
+}
+.health-bar {
+  position: relative;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  width: 240px;
+  height: 31px;
+  border-radius: 50rem;
+  padding-inline: 11px;
+}
+.health-bar span {
+  display: inline-block;
+  background-color: #261676;
+  height: 13px;
+  border-radius: inherit;
+  transition: all 0.3s ease-in-out;
+}
+.header-2 {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.game-keys {
+  font-family: "Mouse Memoirs", sans-serif;
+  display: grid;
+  place-items: center;
+  width: 109px;
+  padding-block: 13px;
+  line-height: 120%;
+  letter-spacing: 5%;
+  background-color: white;
+  border-radius: 24px;
+  color: #261676;
+  font-size: 48px;
+  text-transform: uppercase;
+}
+.picked {
+  background-color: rgb(255, 255, 255, 0.25);
+}
+.alphabets {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.game-keys:hover {
+  background-color: #2463ff;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+}
+.words {
+  width: 80%;
+  margin-bottom: 120px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-inline: auto;
+  text-align: center;
+}
+.puzzle-whitespace {
+  width: 113px;
+  height: 128px;
+}
+.puzzle {
+  font-size: 88px;
+  font-family: "Mouse Memoirs", sans-serif;
+  text-transform: uppercase;
+  height: 128px;
+  width: 113px;
+  cursor: pointer;
+  padding-inline: 37.5px;
+  padding-block: 11px;
+  border-radius: 40px;
+  background-color: #2463ff;
+  position: relative;
+  border: solid 2px transparent;
+  color: #fff;
+  box-shadow: inset 1px 0px 0px 6px #3c74ff, inset 0 -2px 0 3px #140e66;
+  transition: all 0.3s ease-in-out;
+}
+.puzzle:focus {
+  outline: none;
+  border-color: #261676;
+}
+.puzzle.wrong {
+  border: solid 2px red;
+}
+.puzzle-space {
+  width: 113px;
+  height: 128px;
+  border-radius: 40px;
+  background-color: rgba(36, 99, 255, 0.25);
+  border: solid 2px transparent;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.options {
+  width: 275px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 34px;
+}
+.option-1,
+.option-2 {
+  position: relative;
+  font-size: 32px;
+  max-width: 100%;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 12px 64px;
+  border-radius: 40px;
+}
+.option-1 {
+  background-color: #2463ff;
+}

@@ -1,10 +1,14 @@
+import FetchGameDetails from "@/app/components/game/FetchGameDetails";
 import React from "react";
+
 interface PageProps {
-  params: { id: string };
+  params: { text: string };
 }
 
 const GamePage = ({ params }: PageProps) => {
-  const { id } = params;
+  const { text } = params;
+
+  return <FetchGameDetails text={text} />;
 };
 
 export default GamePage;
