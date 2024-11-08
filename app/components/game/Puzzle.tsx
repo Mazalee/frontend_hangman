@@ -6,6 +6,7 @@ import LoadingComponent from "../LoadingComponent";
 import {
   checkForCorrectAnswer,
   checkForWin,
+  puzzleClue,
   setGameStarted,
   updateAnswer,
 } from "@/app/features/gameSlice";
@@ -14,6 +15,9 @@ const Puzzle = () => {
   const dispatch = useAppDispatch();
   const selectedWord = useAppSelector(
     (state: RootState) => state.game.selectedWord
+  );
+  const missingWords = useAppSelector(
+    (state: RootState) => state.game.missingWords
   );
   console.log(selectedWord);
   const gameStarted = useAppSelector(
@@ -32,6 +36,12 @@ const Puzzle = () => {
     }
   }, [selectedWord]);
 
+  useEffect(() => {
+    if (selectedWord && missingWords) {
+      setInputValues(missingWords.map((char) => char || ""));
+    }
+  }, [selectedWord, missingWords]);
+
   const handleInputChange = (
     index: number,
     event: React.ChangeEvent<HTMLInputElement>
@@ -46,6 +56,7 @@ const Puzzle = () => {
         dispatch(setGameStarted(true));
       }
       dispatch(checkForCorrectAnswer(userOption));
+      dispatch(checkForWin());
     }
   };
 
@@ -55,6 +66,10 @@ const Puzzle = () => {
       dispatch(checkForWin());
     }
   }, [inputValues, gameStarted]);
+
+  useEffect(() => {
+    dispatch(puzzleClue());
+  }, [inputValues]);
 
   return (
     <div className="">
@@ -74,7 +89,10 @@ const Puzzle = () => {
                   type="text"
                   value={inputValues[index] || ""}
                   onChange={(event) => handleInputChange(index, event)}
-                  readOnly={false}
+                  readOnly={(missingWords && missingWords[index]) !== ""}
+                  placeholder={
+                    missingWords && missingWords[index] === "" ? "" : undefined
+                  }
                 />
               )
             )
